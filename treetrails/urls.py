@@ -20,4 +20,6 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('brightbulb/', include('brightbulb.urls')),
+    path('machinelearning/', include('machinelearning.urls')),
+    path('', include('core.urls')),
 ]

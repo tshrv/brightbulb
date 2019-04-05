@@ -16,38 +16,47 @@ from django.contrib.auth.models import User
 from .serializers import UserSerializer
 
 
-# @api_view(['GET', 'POST'])
+@api_view(['GET', 'POST'])
 @csrf_exempt
-def userList(request, format=None):
+def user_list(request, format=None):
     if request.method == 'GET':
         serializer = UserSerializer(User.objects.all(), many=True)
         return JsonResponse(serializer.data, safe=False, status=status.HTTP_200_OK)
 
     elif request.method == 'POST':
-        serializer = UserSerializer(data=request.POST)
+        serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
             # vulnerable: raw password being saved initially
             user = serializer.save()
             user.set_password(user.password)
             user.save()
-            return JsonResponse(serializer.data, safe=False, status=status.HTTP_201_CREATED)
+            content = {
+                'status': status.HTTP_201_CREATED,
+                'data': serializer.data,
+            }
+            return JsonResponse(content, safe=False, status=status.HTTP_201_CREATED)
         else:
             content = {
                 'status': status.HTTP_406_NOT_ACCEPTABLE,
-                'data': request.POST,
+                'data': request.data,
                 'error': serializer.errors,
             }
             return JsonResponse(content, safe=False, status=status.HTTP_406_NOT_ACCEPTABLE)
 
-    # elif request.method == 'PUT':
-    #     content = {
-    #         'status': status.HTTP_405_METHOD_NOT_ALLOWED,
-    #         'data': request.data,
-    #     }
-    #     return JsonResponse(content, status=status.HTTP_405_METHOD_NOT_ALLOWED)
+
+def bad_request(request, path):
+    content = {
+        'status': status.HTTP_400_BAD_REQUEST,
+        'data': {
+            'url': path,
+        }
+    }
+    return JsonResponse(content, status=status.HTTP_400_BAD_REQUEST)
 
 
-def userDetail(request, username, format=None):
+@api_view(['GET', 'PUT', 'DELETE'])
+@csrf_exempt
+def user_detail(request, username, format=None):
     try:
         user = User.objects.get(username=username)
     except User.DoesNotExist or User.MultipleObjectsReturned:
@@ -66,12 +75,49 @@ def userDetail(request, username, format=None):
             }
             return JsonResponse(content, safe=False, status=status.HTTP_404_NOT_FOUND)
 
+    elif request.method == 'PUT':
+        if user is not None:
+            # flow error: requires all data of the user
+            serializer = UserSerializer(instance=user, data=request.data)
+            if serializer.is_valid():
+                user = serializer.save()
+                user.set_password(user.password)
+                user.save()
+                content = {
+                    'status': status.HTTP_202_ACCEPTED,
+                    'data': serializer.data,
+                }
+                return JsonResponse(content, safe=False, status=status.HTTP_202_ACCEPTED)
+            else:
+                content = {
+                    'status': status.HTTP_406_NOT_ACCEPTABLE,
+                    'data': request.data,
+                    'error': serializer.errors,
+                }
+                return JsonResponse(content, safe=False, status=status.HTTP_406_NOT_ACCEPTABLE)
+        else:
+            content = {
+                'status': status.HTTP_404_NOT_FOUND,
+                'data': request.data,
+            }
+            return JsonResponse(content, safe=False, status=status.HTTP_404_NOT_FOUND)
 
-def badRequest(request, path):
-    content = {
-        'status': status.HTTP_400_BAD_REQUEST,
-        'data': {
-            'url': path,
-        }
-    }
-    return JsonResponse(content, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'DELETE':
+        if user is not None:
+            # flow error: requires all data of the user
+            user.delete()
+            content = {
+                'status': status.HTTP_200_OK,
+                'data': {
+                    'username': username,
+                },
+            }
+            return JsonResponse(content, safe=False, status=status.HTTP_200_OK)
+        else:
+            content = {
+                'status': status.HTTP_404_NOT_FOUND,
+                'data': {
+                    'username': username,
+                },
+            }
+            return JsonResponse(content, safe=False, status=status.HTTP_404_NOT_FOUND)
