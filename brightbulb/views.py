@@ -1,7 +1,6 @@
 # DJANGO
 from django.http import JsonResponse
 from django.shortcuts import render
-from django.utils.text import slugify
 from django.views.decorators.csrf import csrf_exempt
 # REST_FRAMEWORK
 from rest_framework.permissions import IsAuthenticated
@@ -20,7 +19,7 @@ from .auth import BearerAuthentication
 # PERMISSIONS
 # from .permissions import
 # UTILS
-from .utils import gen_response
+from .utils import gen_response, uniquely_slugify
 
 
 # USERS
@@ -106,7 +105,7 @@ def note_list_create(request):
         if serializer.is_valid():
             note = serializer.save()
             note.owner = request.user
-            note.slug = slugify(note.title)
+            note.slug = uniquely_slugify(note.title, Note)
             note.save()
             return gen_response(status.HTTP_201_CREATED, NoteSerializer(note).data)
         else:
@@ -119,7 +118,7 @@ def note_list_create(request):
 @csrf_exempt
 def note_detail(request, slug, format=None):
     try:
-        note = Note.objects.get(slug__iexact=slug)
+        note = Note.objects.get(slug__iexact=slug, owner=request.user)
     except Note.DoesNotExist:
         return gen_response(status.HTTP_404_NOT_FOUND, {'slug': slug})
 
@@ -131,13 +130,14 @@ def note_detail(request, slug, format=None):
         serializer = NoteSerializer(data=request.data, instance=note)
         if serializer.is_valid():
             note = serializer.save()
-            note.slug = slugify(note.title)
+            note.slug = uniquely_slugify(note.title)
             note.save()
             return gen_response(status.HTTP_202_ACCEPTED, NoteSerializer(note).data)
         else:
             return gen_response(status.HTTP_406_NOT_ACCEPTABLE, serializer.errors)
 
     elif request.method == 'DELETE':
+        note.delete()
         return gen_response(status.HTTP_200_OK, {'slug': slug})
 
 

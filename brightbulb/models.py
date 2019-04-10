@@ -12,10 +12,3 @@ class Note(models.Model):
     def __str__(self):
         return self.title
 
-
-def pre_save_reciever(Note, instance, *args, **kwargs):
-    print('pre save reciever')
-
-
-pre_save.connect(pre_save_reciever, sender=Note)
-

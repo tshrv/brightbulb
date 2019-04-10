@@ -22,7 +22,7 @@
                     <th>Form data</th>
                 </tr>
                 <tr>
-                    <td><b class="red-text text-darken-2">Get auth token</b></td>
+                    <td><b class="red-text text-darken-2">*Get auth token</b></td>
                     <td><b class="orange-text text-darken-2">POST</b></td>
                     <td><a href="https://treetrails.herokuapp.com/brightbulb/auth/">
                         https://treetrails.herokuapp.com/brightbulb/auth/</a></td>
@@ -81,6 +81,57 @@
                     <td><b class="red-text text-darken-2">DELETE</b></td>
                     <td><a href="https://treetrails.herokuapp.com/brightbulb/users/tushar">
                         https://treetrails.herokuapp.com/brightbulb/users/<span class="red-text text-darken-2">username</span>
+                    </a></td>
+                    <td>
+                        <pre class="grey-text text-darken-2">{}</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Get all notes</td>
+                    <td><b class="green-text text-darken-2">GET</b></td>
+                    <td><a href="https://treetrails.herokuapp.com/brightbulb/notes/">
+                        https://treetrails.herokuapp.com/brightbulb/notes/</a></td>
+                    <td><pre class="grey-text text-darken-2">{}</pre></td>
+                </tr>
+                <tr>
+                    <td>Add new note</td>
+                    <td><b class="orange-text text-darken-2">POST</b></td>
+                    <td><a href="https://treetrails.herokuapp.com/brightbulb/notes/">
+                        https://treetrails.herokuapp.com/brightbulb/notes/</a></td>
+                    <td>
+                                <pre class="grey-text text-darken-2">{
+    'title':'',
+    'content':'',
+}</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Get a note</td>
+                    <td><b class="green-text text-darken-2">GET</b></td>
+                    <td><a href="https://treetrails.herokuapp.com/brightbulb/notes/kishor-kumar/">
+                        https://treetrails.herokuapp.com/brightbulb/notes/<span class="red-text text-darken-2">slug</span>
+                    </a></td>
+                    <td>
+                        <pre class="grey-text text-darken-2">{}</pre>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Update a note</td>
+                    <td><b class="blue-text text-darken-2">PUT</b></td>
+                    <td><a href="https://treetrails.herokuapp.com/brightbulb/notes/kishor-kumar/">
+                        https://treetrails.herokuapp.com/brightbulb/notes/<span class="red-text text-darken-2">slug</span>
+                    </a></td>
+                    <td>
+                                <pre class="grey-text text-darken-2">{
+    'title':'',
+    'content':'',
+}</pre>                            </td>
+                </tr>
+                <tr>
+                    <td>Delete a note</td>
+                    <td><b class="red-text text-darken-2">DELETE</b></td>
+                    <td><a href="https://treetrails.herokuapp.com/brightbulb/notes/kishor-kumar/">
+                        https://treetrails.herokuapp.com/brightbulb/notes/<span class="red-text text-darken-2">slug</span>
                     </a></td>
                     <td>
                         <pre class="grey-text text-darken-2">{}</pre>
