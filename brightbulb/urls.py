@@ -23,6 +23,8 @@ urlpatterns = [
     path('notes/<str:slug>/', views.note_detail),
 
     path('<str:path>/', views.bad_request),
+
+    path('', views.description)
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

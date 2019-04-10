@@ -1,5 +1,6 @@
 from django.http import JsonResponse
 from django.conf import settings
+from django.shortcuts import render
 from rest_framework import status
 
 import pandas as pd
@@ -7,6 +8,10 @@ from sklearn.externals import joblib
 
 import os
 from datetime import datetime
+
+
+def description(request):
+    return render(request, 'machinelearning/description.html')
 
 
 def load_regressor(filename):

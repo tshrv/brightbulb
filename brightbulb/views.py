@@ -1,5 +1,6 @@
 # DJANGO
 from django.http import JsonResponse
+from django.shortcuts import render
 from django.utils.text import slugify
 from django.views.decorators.csrf import csrf_exempt
 # REST_FRAMEWORK
@@ -149,3 +150,8 @@ def bad_request(request, path):
         }
     }
     return JsonResponse(content, status=status.HTTP_400_BAD_REQUEST)
+
+
+# DESCRIPTION
+def description(request):
+    return render(request, 'brightbulb/description.html')

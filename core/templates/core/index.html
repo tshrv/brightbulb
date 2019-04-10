@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block main %}
+        <h4 class="light">Contents</h4>
+
+        <div class="collection">
+            <a href="#brightbulb" class="collection-item">BrightBulb</a>
+            <a href="#weatherforecast" class="collection-item">Weather Forecast</a>
+        </div>
+
+
+        <h4 class="light">Description</h4>
+        {% include 'brightbulb/data.html' %}
+        {% include 'machinelearning/data.html' %}
+
+{% endblock %}

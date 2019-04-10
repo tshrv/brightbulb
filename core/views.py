@@ -3,4 +3,4 @@ from django.http import response
 
 
 def home(request):
-    return render(request, template_name='core/base.html')
+    return render(request, template_name='core/index.html')
