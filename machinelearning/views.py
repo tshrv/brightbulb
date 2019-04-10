@@ -14,6 +14,7 @@ def load_regressor(filename):
     return joblib.load(file)
 
 
+# VIEW
 def make_prediction(request, date_str):
     try:
         date = datetime.strptime(date_str, '%Y-%m-%d')
