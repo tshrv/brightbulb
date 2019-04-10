@@ -6,10 +6,11 @@ from .models import Note
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = '__all__'
+        # fields = '__all__'
+        exclude = ('id', 'password')
 
 
 class NoteSerializer(serializers.ModelSerializer):
     class Meta:
         model = Note
-        fields = '__all__'
+        exclude = ('id', 'owner')

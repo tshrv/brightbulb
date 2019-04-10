@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6eb898d4-93f9-439b-92ba-befdaae579ca" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/brightbulb/templates/brightbulb/data.html" beforeDir="false" afterPath="$PROJECT_DIR$/brightbulb/templates/brightbulb/data.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/templates/core/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/core/templates/core/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/machinelearning/templates/machinelearning/data.html" beforeDir="false" afterPath="$PROJECT_DIR$/machinelearning/templates/machinelearning/data.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/brightbulb/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/brightbulb/serializers.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,20 +15,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/machinelearning/templates/machinelearning/data.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="2" column="54" selection-start-line="2" selection-start-column="54" selection-end-line="2" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/templates/core/base.html">
+        <entry file="file://$PROJECT_DIR$/brightbulb/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="434">
-              <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+            <state relative-caret-position="22">
+              <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+              <folding>
+                <element signature="e#0#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -61,7 +53,6 @@
         <option value="$PROJECT_DIR$/treetrails/settings.py" />
         <option value="$PROJECT_DIR$/brightbulb/auth.py" />
         <option value="$PROJECT_DIR$/brightbulb/permissions.py" />
-        <option value="$PROJECT_DIR$/brightbulb/serializers.py" />
         <option value="$PROJECT_DIR$/core/views.py" />
         <option value="$PROJECT_DIR$/brightbulb/urls.py" />
         <option value="$PROJECT_DIR$/machinelearning/templates/machinelearning/description.html" />
@@ -75,6 +66,7 @@
         <option value="$PROJECT_DIR$/brightbulb/templates/brightbulb/data.html" />
         <option value="$PROJECT_DIR$/machinelearning/templates/machinelearning/data.html" />
         <option value="$PROJECT_DIR$/core/templates/core/base.html" />
+        <option value="$PROJECT_DIR$/brightbulb/serializers.py" />
       </list>
     </option>
   </component>
@@ -100,20 +92,7 @@
             <path>
               <item name="treetrails" type="b2602c69:ProjectViewProjectNode" />
               <item name="treetrails" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="treetrails" type="b2602c69:ProjectViewProjectNode" />
-              <item name="treetrails" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="treetrails" type="b2602c69:ProjectViewProjectNode" />
-              <item name="treetrails" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="core" type="462c0819:PsiDirectoryNode" />
+              <item name="brightbulb" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -197,18 +176,17 @@
       <workItem from="1554741966075" duration="4448000" />
       <workItem from="1554825808117" duration="8822000" />
       <workItem from="1554900910192" duration="1496000" />
-      <workItem from="1554920295711" duration="5197000" />
+      <workItem from="1554920295711" duration="5502000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57206000" />
+    <option name="totallyTimeSpent" value="57511000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22803031" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22803031" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -222,7 +200,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007576" side_tool="true" weight="0.8033058" />
-      <window_info anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" weight="0.8033058" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" sideWeight="0.49924242" visible="true" weight="0.8033058" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.72231406" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -299,16 +277,6 @@
           <caret line="48" column="22" selection-start-line="48" selection-start-column="22" selection-end-line="48" selection-end-column="22" />
           <folding>
             <element signature="e#311#320#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/brightbulb/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="24" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -445,8 +413,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/templates/core/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="434">
+        <state relative-caret-position="383">
           <caret line="34" column="7" selection-start-line="34" selection-start-column="7" selection-end-line="34" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/brightbulb/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="9" column="31" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
