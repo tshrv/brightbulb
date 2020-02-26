@@ -12,11 +12,8 @@ A note taking application backend written in django using django-rest-framework.
   }
   ```
 
-- Get auth token: **POST** <br/>
-  https://treetrails.herokuapp.com/brightbulb/auth/
+- Get all users: **GET** <br/>
+  https://treetrails.herokuapp.com/brightbulb/users/
   ```
-  {
-    'username':'',
-    'password':'',
-  }
+  {}
   ```
